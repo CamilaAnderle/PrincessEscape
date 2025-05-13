@@ -107,6 +107,12 @@ class Fase1 extends Phaser.Scene {
       this.physics.add.overlap(this.player, porta, () => {
         this.scene.start('Fase2');
       }, null, this);
+
+      //Transição para tela GameOver ao tocar na água
+      this.physics.add.overlap(this.player, water, () => {
+        this.scene.start('GameOver');
+      }, null, this);
+      
     }
   
     update() {
@@ -259,6 +265,12 @@ class Fase1 extends Phaser.Scene {
       this.physics.add.overlap(this.player, porta, () => {
         this.scene.start('Fase1');
       }, null, this);
+
+      //Transição para tela GameOver ao tocar na água
+      this.physics.add.overlap(this.player, water, () => {
+        this.scene.start('GameOver');
+      }, null, this);      
+      
     }
   
     update() {
@@ -279,7 +291,26 @@ class Fase1 extends Phaser.Scene {
     }
   }
   
+  class GameOver extends Phaser.Scene {
+    constructor() {
+      super('GameOver');
+    }
+  
+    preload() {
+      this.load.image('gameOverBG', 'assets/gameOver.png');
+    }
+  
+    create() {
+      this.add.image(0, 0, 'gameOverBG').setOrigin(0, 0).setDisplaySize(800, 600);
+  
+      this.input.once('pointerdown', () => {
+        this.scene.start('Fase1'); // reinicia a fase 1 ao clicar
+      });
+    }
+  }
+  
 
+  
 const config = {
   type: Phaser.AUTO,
   width: 800,
@@ -292,7 +323,7 @@ const config = {
       debug: false,
     },
   },
-  scene: [Fase1, Fase2],
+  scene: [Fase1, Fase2, GameOver],
 };
 
 const game = new Phaser.Game(config);
