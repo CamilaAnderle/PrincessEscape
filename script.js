@@ -28,20 +28,21 @@ class Fase1 extends Phaser.Scene {
       // Plataformas
       const platforms = this.physics.add.staticGroup();
       platforms.create(400, 568, 'ground').setScale(2).refreshBody();
-      platforms.create(600, 400, 'ground');
+      platforms.create(850, 400, 'ground');
       platforms.create(-100, 520, 'ground');
-      platforms.create(-50, 200, 'ground');
+      platforms.create(-80, 200, 'ground');
   
       // Castelo
       const castle = this.physics.add.staticGroup();
       castle.create(275, 570, 'castle');
       castle.create(275, 530, 'castle');
       castle.create(275, 470, 'castle');
-      castle.create(275, 300, 'castleHalf');
-      castle.create(100, 350, 'castleHalf');
-      castle.create(450, 150, 'baus');
-      castle.create(500, 150, 'baus');
-      castle.create(570, 150, 'baus');
+      castle.create(250, 200, 'castleHalf');
+      castle.create(500, 350, 'castleHalf');
+      castle.create(450, 100, 'castleHalf');
+      castle.create(620, 150, 'baus');
+      castle.create(690, 150, 'baus');
+      castle.create(760, 150, 'baus');
   
       // Água
       const water = this.physics.add.staticGroup();
@@ -52,6 +53,10 @@ class Fase1 extends Phaser.Scene {
       water.create(485, 530, 'liquid');
       water.create(555, 530, 'liquid');
       water.create(625, 530, 'liquid');
+      water.create(695, 530, 'liquid');
+      water.create(765, 530, 'liquid');
+      water.create(695, 580, 'sunken');
+      water.create(765, 580, 'sunken');
       water.create(625, 580, 'sunken');
       water.create(555, 580, 'sunken');
       water.create(485, 580, 'sunken');
@@ -62,8 +67,8 @@ class Fase1 extends Phaser.Scene {
   
       // Porta
       const porta = this.physics.add.staticGroup();
-      porta.create(550, 100, 'porta');
-      porta.create(550, 50, 'portaTopo');
+      porta.create(750, 100, 'porta');
+      porta.create(750, 50, 'portaTopo');
   
       // Jogador
       this.player = this.physics.add.sprite(50, 450, 'fr1');
@@ -158,7 +163,7 @@ class Fase1 extends Phaser.Scene {
       // Plataformas
       const platforms = this.physics.add.staticGroup();
       platforms.create(400, 568, 'ground').setScale(2).refreshBody();
-      platforms.create(600, 400, 'ground');
+      platforms.create(900, 470, 'ground');
       platforms.create(-100, 520, 'ground');
       platforms.create(-100, 180, 'ground');
   
@@ -170,14 +175,18 @@ class Fase1 extends Phaser.Scene {
       castle.create(285, 510, 'castleHalf');
       castle.create(295, 455, 'escada');
       castle.create(355, 405, 'escada');
-      castle.create(540, 140, 'baus');
-      castle.create(335, 100, 'baus');
+      castle.create(750, 140, 'baus');
+      castle.create(550, 180, 'baus');
       castle.create(210, 180, 'baus');
       castle.create(335, 250, 'baus');
+      castle.create(600, 400, 'baus');
+      castle.create(480, 350, 'baus');
+
+
 
       //Dica
       const dica = this.physics.add.staticGroup();
-      dica.create(480, 350, 'dica');
+      dica.create(750, 420, 'dica');
 
       //Premio
       const premio = this.physics.add.staticGroup();
@@ -194,6 +203,10 @@ class Fase1 extends Phaser.Scene {
       water.create(485, 530, 'liquid');
       water.create(555, 530, 'liquid');
       water.create(625, 530, 'liquid');
+      water.create(695, 530, 'liquid');
+      water.create(765, 530, 'liquid');
+      water.create(695, 580, 'sunken');
+      water.create(765, 580, 'sunken');
       water.create(275, 580, 'sunken');
       water.create(625, 580, 'sunken');
       water.create(555, 580, 'sunken');
@@ -205,7 +218,7 @@ class Fase1 extends Phaser.Scene {
   
       // Porta
       const porta = this.physics.add.staticGroup();
-      porta.create(540, 100, 'saida');
+      porta.create(750, 100, 'saida');
       porta.create(5, 480, 'porta');
       porta.create(5, 420, 'portaTopo');
   
