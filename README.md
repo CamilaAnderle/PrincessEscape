@@ -1,3 +1,4 @@
 # PrincessEscape
 
-[Edit in StackBlitz next generation editor ⚡️](https://stackblitz.com/~/github.com/CamilaAnderle/PrincessEscape)
+Acesse para jogar: 
+[Link](https://camilaanderle.github.io/PrincessEscape/)
