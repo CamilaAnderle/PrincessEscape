@@ -13,6 +13,10 @@ class Fase1 extends Phaser.Scene {
       this.load.image('porta', 'assets/door_closedMid.png');
       this.load.image('portaTopo', 'assets/door_closedTop.png');
       this.load.image('castleHalf', 'assets/castleHalfMid.png');
+
+      
+      ColecionaPontos.preload(this);
+
   
       // Carrega os assets da jogadora
       let p = new Player(this);
@@ -52,6 +56,10 @@ class Fase1 extends Phaser.Scene {
   
       this.physics.add.collider(this.player.sprite, platforms);
       this.physics.add.collider(this.player.sprite, castle);
+
+      this.pontos = new ColecionaPontos(this, platforms, castle);
+      this.pontos.ativarColetas(this.player);
+
   
       new Porta(this, 750, 100, 'Fase2', 'porta');
       this.physics.add.staticImage(750, 50, 'portaTopo');
