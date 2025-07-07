@@ -61,7 +61,7 @@ class Fase1 extends Phaser.Scene {
       this.pontos.ativarColetas(this.player);
 
   
-      new Porta(this, 750, 100, 'Fase2', 'porta');
+      new Porta(this, 750, 100, 'Fase2', 'porta', this.pontos);
       this.physics.add.staticImage(750, 50, 'portaTopo');
   
       this.physics.add.overlap(this.player.sprite, water, () => {
