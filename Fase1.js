@@ -57,7 +57,7 @@ class Fase1 extends Phaser.Scene {
       this.physics.add.collider(this.player.sprite, platforms);
       this.physics.add.collider(this.player.sprite, castle);
 
-      this.pontos = new ColecionaPontos(this, platforms, castle);
+      this.pontos = new ColecionaPontos(this, platforms, castle, 'Fase1');
       this.pontos.ativarColetas(this.player);
 
   
