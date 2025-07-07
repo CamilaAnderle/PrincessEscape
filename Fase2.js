@@ -10,8 +10,8 @@ class Fase2 extends Phaser.Scene {
       this.load.image('ground', 'assets/platform.png');
       this.load.image('sunken', 'assets/liquidWater.png');
       this.load.image('baus', 'assets/bridge.png');
-      this.load.image('porta', 'assets/door_closedMid.png');
-      this.load.image('portaTopo', 'assets/door_closedTop.png');
+      this.load.image('portaAberta', 'assets/door_openMid.png');
+      this.load.image('portaTopoAberta', 'assets/door_openTop.png');      
       this.load.image('castleHalf', 'assets/castleHalfMid.png');
       this.load.image('dica', 'assets/boxCoin.png');
       this.load.image('premio', 'assets/lock_yellow.png');
@@ -66,15 +66,16 @@ class Fase2 extends Phaser.Scene {
       this.physics.add.collider(this.player.sprite, platforms);
       this.physics.add.collider(this.player.sprite, castle);
   
-      new Porta(this, 750, 100, 'Fase1', 'saida');
+      //new Porta(this, 750, 100, 'Fase1', 'saida');
   
       const porta = this.physics.add.staticGroup();
-      porta.create(5, 480, 'porta');
-      porta.create(5, 420, 'portaTopo');
+      porta.create(5, 480, 'portaAberta');
+      porta.create(5, 430, 'portaTopoAberta');
+
   
-      this.physics.add.overlap(this.player.sprite, porta, () => {
+     /* this.physics.add.overlap(this.player.sprite, porta, () => {
         this.scene.start('Fase1');
-      });
+      });*/
   
       this.physics.add.overlap(this.player.sprite, water, () => {
         this.scene.start('GameOver');
