@@ -4,7 +4,7 @@ class Fase2 extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image('background', 'assets/Background.png');
+    this.load.image('background', 'assets/fundo.png');
     this.load.image('castle', 'assets/castle.png');
     this.load.image('liquid', 'assets/liquidWaterTop.png');
     this.load.image('ground', 'assets/platform.png');
@@ -13,8 +13,6 @@ class Fase2 extends Phaser.Scene {
     this.load.image('portaAberta', 'assets/door_openMid.png');
     this.load.image('portaTopoAberta', 'assets/door_openTop.png');      
     this.load.image('castleHalf', 'assets/castleHalfMid.png');
-   // this.load.image('dica', 'assets/boxCoin.png');
-    //this.load.image('premio', 'assets/lock_yellow.png');
     this.load.image('saida', 'assets/signExit.png');
     this.load.image('escada', 'assets/fence.png');
     this.load.image('mensagemDica', 'assets/mensagem_dica.png');
@@ -48,12 +46,6 @@ class Fase2 extends Phaser.Scene {
     castle.create(600, 400, 'baus');
     castle.create(480, 350, 'baus');
 
-    /*const dica = this.physics.add.staticGroup();
-    dica.create(750, 420, 'dica');*/
-
-   // const premioGroup = this.physics.add.staticGroup();
-   // const premio = premioGroup.create(50, 130, 'premio');
-
     const water = this.physics.add.staticGroup();
     const waterTiles = [135, 205, 275, 345, 415, 485, 555, 625, 695, 765];
     for (let x of waterTiles) {
@@ -78,46 +70,14 @@ class Fase2 extends Phaser.Scene {
       this.scene.start('GameOver');
     });
 
-    /*this.mensagemDica = this.add.image(400, 300, 'mensagemDica')
-      .setOrigin(0.5)
-      .setScrollFactor(0)
-      .setDepth(10)
-      .setScale(0.7);
-    this.mensagemDica.setVisible(false);*/
+    const saida = this.physics.add.staticImage(750, 100, 'saida');
 
-    /*this.physics.add.overlap(this.player.sprite, dica, () => {
-      this.mensagemDica.setVisible(true);
-      this.time.delayedCall(5000, () => {
-        this.mensagemDica.setVisible(false);
-      });
-      dica.clear(true);
-    }, null, this);*/
+    this.physics.add.overlap(this.player.sprite, saida, () => {
+      if (this.pontos.temChave) {
+        this.scene.start('FimJogo');
+      }
+    }, null, this);
 
-    // HUD da chave (inicialmente invisível)
-    /*this.chaveHudFase2 = this.add.image(270, 32, 'chave')
-      .setVisible(false)
-      .setScrollFactor(0)
-      .setScale(0.5);
-
-    // Ao tocar no prêmio, animar uma chave até o HUD
-    this.physics.add.overlap(this.player.sprite, premioGroup, (player, premio) => {
-      premio.disableBody(true, true);
-
-      const chaveAnimada = this.add.image(premio.x, premio.y, 'chave').setScale(1);
-
-      this.tweens.add({
-        targets: chaveAnimada,
-        x: 270,
-        y: 32,
-        scale: 0.5,
-        duration: 800,
-        ease: 'Power2',
-        onComplete: () => {
-          chaveAnimada.destroy();
-          this.chaveHudFase2.setVisible(true);
-        }
-      });
-    }, null, this);*/
   }
 
   update() {

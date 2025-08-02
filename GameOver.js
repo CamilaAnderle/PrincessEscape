@@ -12,7 +12,7 @@ class GameOver extends Phaser.Scene {
       this.add.image(0, 0, 'gameOverBG').setOrigin(0, 0).setDisplaySize(800, 600);
   
       this.input.once('pointerdown', () => {
-        this.scene.start('Fase1');
+        this.scene.start('Intro');
       });
     }
   }

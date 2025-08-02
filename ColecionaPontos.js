@@ -69,7 +69,7 @@ class ColecionaPontos {
     scene.physics.add.collider(this.chave, plataformas);
 
     // HUD da chave
-    this.chaveHud = scene.add.image(220, 32, 'chave')
+    this.chaveHud = scene.add.image(250, 32, 'chave')
       .setVisible(false)
       .setScrollFactor(0)
       .setScale(0.5);
@@ -102,7 +102,7 @@ class ColecionaPontos {
 
     this.scene.tweens.add({
       targets: chaveAnimada,
-      x: 220,
+      x: 250,
       y: 32,
       scale: 0.5,
       duration: 800,

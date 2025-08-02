@@ -11,7 +11,7 @@ const config = {
       debug: false,
     },
   },
-  scene: [Fase1, Fase2, GameOver],
+  scene: [Intro, Fase1, Fase2, FimJogo, Fim, GameOver],
 };
 
 const game = new Phaser.Game(config);

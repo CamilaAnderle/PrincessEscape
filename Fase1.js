@@ -4,7 +4,7 @@ class Fase1 extends Phaser.Scene {
     }
   
     preload() {
-      this.load.image('background', 'assets/Background.png');
+      this.load.image('background', 'assets/fundo.png');
       this.load.image('castle', 'assets/castle.png');
       this.load.image('liquid', 'assets/liquidWaterTop.png');
       this.load.image('ground', 'assets/platform.png');
