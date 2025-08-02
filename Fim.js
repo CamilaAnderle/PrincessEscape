@@ -47,6 +47,8 @@ class Fim extends Phaser.Scene {
       this.input.keyboard.once('keydown-ENTER', () => {
         this.scene.start('Intro');
       });
+
+      window.scoreGlobal = 0;
     }
   }
   

@@ -15,7 +15,7 @@ class FimJogo extends Phaser.Scene {
     create() {
         
       // Fundo da cena
-      this.add.image(400, 300, 'fundo').setScale(0.65);
+      this.add.image(400, 300, 'fundo').setScale(0.7);
 
       const platforms = this.physics.add.staticGroup();
       platforms.create(400, 568, 'ground').setScale(2).refreshBody();
